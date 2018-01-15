@@ -16,6 +16,9 @@ public class AES {
     final static int AES_KEYLENGTH = 128;
     private static SecretKeySpec secretKey;
     private static byte[] key;
+    static String ALGORITHM_NAME = "AES" ;
+    static String MODE_OF_OPERATION = "CBC" ;
+    static String PADDING_SCHEME = "PKCS5Padding" ;
 
     public static void setKey(String secret)
     {
@@ -45,7 +48,7 @@ public class AES {
         try
         {
             setKey(secret);
-            Cipher aesCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            Cipher aesCipher = Cipher.getInstance(ALGORITHM_NAME + "/" + MODE_OF_OPERATION + "/" + PADDING_SCHEME);
             aesCipher.init(Cipher.ENCRYPT_MODE, secretKey, new IvParameterSpec(iv));
             byte[] byteDataToEncrypt = strDataToEncrypt.getBytes();
             byte[] byteCipherText = aesCipher.doFinal(byteDataToEncrypt);
@@ -62,7 +65,7 @@ public class AES {
     public static String decrypt(String secret, String cipherText, byte[] iv) {
         try {
             setKey(secret);
-            Cipher aesCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            Cipher aesCipher = Cipher.getInstance(ALGORITHM_NAME + "/" + MODE_OF_OPERATION + "/" + PADDING_SCHEME);
             aesCipher.init(Cipher.DECRYPT_MODE, secretKey, new IvParameterSpec(iv));
             byte[] byteCipherText = new BASE64Decoder().decodeBuffer(cipherText);
             byte[] byteDecryptedText = aesCipher.doFinal(byteCipherText);
