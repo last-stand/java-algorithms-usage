@@ -1,8 +1,7 @@
+package encryption;
+
 import java.security.KeyPair;
 
-import encryption.AES;
-import encryption.TripleDES;
-import static encryption.RC5.*;
 import static encryption.RC5.rc5Decrypt;
 import static encryption.RC5.rc5Encrypt;
 import static encryption.RC6.rc6Decrypt;
