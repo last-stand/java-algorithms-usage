@@ -17,6 +17,7 @@ This program provides the following cryptographic functionalities
 * a.  Use SecureRandom to generate random bits
  The size of the IV matches the blocksize of the cipher (128 bits for AES)
 * b.  Construct the appropriate IvParameterSpec object for the data to pass to Cipher's init() method
+>**Note:** Step-2 is only needed for CBC or CTR operation mode then follow Step-6a.
 
 **Step 3.** Create a Cipher by specifying the following parameters
  * a. Algorithm name - AES(Advanced Encryption Standard)
