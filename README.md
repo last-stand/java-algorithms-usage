@@ -1,4 +1,4 @@
-# Algorithms
+# java-algorithms-usage
 
 ## Description:
-Different encryption and compression algorithms in Java.
+Use of different encryption, hashing and compression algorithm in Java.
