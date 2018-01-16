@@ -4,7 +4,6 @@ import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -13,12 +12,12 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 
 public class AES {
-    final static int AES_KEYLENGTH = 128;
+    private final static int AES_KEYLENGTH = 128;
     private static SecretKeySpec secretKey;
     private static byte[] key;
-    static String ALGORITHM_NAME = "AES" ;
-    static String MODE_OF_OPERATION = "ECB"; /* ECB/CBC/CTR/GCM/CCM */
-    static String PADDING_SCHEME = "PKCS5Padding" ;
+    private static String ALGORITHM_NAME = "AES" ;
+    private static String MODE_OF_OPERATION = "ECB"; /* ECB/CBC/CTR/GCM/CCM */
+    private static String PADDING_SCHEME = "PKCS5Padding" ;
 
     public static void setKey(String secret)
     {

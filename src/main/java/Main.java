@@ -2,7 +2,11 @@ import java.security.KeyPair;
 
 import encryption.AES;
 import encryption.TripleDES;
-
+import static encryption.RC5.*;
+import static encryption.RC5.rc5Decrypt;
+import static encryption.RC5.rc5Encrypt;
+import static encryption.RC6.rc6Decrypt;
+import static encryption.RC6.rc6Encrypt;
 import static encryption.RSA.*;
 
 public class Main {
@@ -29,7 +33,21 @@ public class Main {
         String shortMessage = "Bye Bye..";
         String encryptedRsaText = rsaEncrypt(shortMessage, rsaKeyPair.getPublic());
         String decryptedRsaText = rsaDecrypt(encryptedRsaText, rsaKeyPair.getPrivate()) ;
-        System.out.println("Encrypted text = " + encryptedRsaText.length()) ;
+        System.out.println("Encrypted text = " + encryptedRsaText) ;
         System.out.println("Decrypted text = " + decryptedRsaText) ;
+
+        System.out.println("\nRC5 encryption...");
+        String toEncrypt = "The shorter you live, the longer you're dead!";
+        String rc5EncryptedText = rc5Encrypt(toEncrypt, "password");
+        System.out.println("Encrypted RC5 text = " + rc5EncryptedText);
+        String rc5DecryptedText = rc5Decrypt(rc5EncryptedText, "password");
+        System.out.println("Decrypted RC5 text: " + rc5DecryptedText);
+
+        System.out.println("\nRC6 encryption...");
+        String textToEncrypt = "Oh my god, you're alive!";
+        String rc6EncryptedText = rc6Encrypt(textToEncrypt, "password123");
+        System.out.println("Encrypted text: " + rc6EncryptedText);
+        String rc6DecryptedText = rc6Decrypt(rc6EncryptedText, "password123");
+        System.out.println("Decrypted text: " + rc6DecryptedText);
     }
 }

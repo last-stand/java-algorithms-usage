@@ -10,10 +10,10 @@ import java.util.Base64;
 ;
 
 public class RSA {
-    static int RSA_KEY_LENGTH = 2048;
-    static String ALGORITHM_NAME = "RSA" ;
-    static String PADDING_SCHEME = "OAEPWITHSHA-512ANDMGF1PADDING" ;
-    static String MODE_OF_OPERATION = "ECB" ;
+    private static int RSA_KEY_LENGTH = 2048;
+    private static String ALGORITHM_NAME = "RSA" ;
+    private static String PADDING_SCHEME = "OAEPWITHSHA-512ANDMGF1PADDING" ;
+    private static String MODE_OF_OPERATION = "ECB" ;
 
     public static KeyPair generateKeyPair () throws NoSuchAlgorithmException {
         KeyPairGenerator rsaKeyGen = KeyPairGenerator.getInstance(ALGORITHM_NAME) ;

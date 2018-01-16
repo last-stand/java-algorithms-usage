@@ -1,4 +1,4 @@
 # Algorithms
 
 ## Description:
-Different encryption, hashing and compression algorithms in Java.
+Different encryption and compression algorithms in Java.

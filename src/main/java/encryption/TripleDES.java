@@ -13,16 +13,15 @@ import java.util.Arrays;
 public class TripleDES {
 
     private static SecretKeySpec secretKey;
-    private static byte[] key;
-    static String ALGORITHM_NAME = "DESede" ;
-    static String MODE_OF_OPERATION = "ECB";
-    static String PADDING_SCHEME = "PKCS5Padding" ;
-    final static int TDES_KEYLENGTH = 24;
+    private static String ALGORITHM_NAME = "DESede" ;
+    private static String MODE_OF_OPERATION = "ECB";
+    private static String PADDING_SCHEME = "PKCS5Padding" ;
+    private final static int TDES_KEYLENGTH = 24;
 
     public static void setKey(String secret)
     {
         try {
-            key = secret.getBytes("UTF-8");
+            byte[] key = secret.getBytes("UTF-8");
             MessageDigest sha = MessageDigest.getInstance("SHA-1");
             byte[] digestOfPassword = sha.digest(key);
             byte[] keyBytes = Arrays.copyOf(digestOfPassword, TDES_KEYLENGTH);
