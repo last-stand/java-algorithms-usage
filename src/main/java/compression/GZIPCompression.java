@@ -9,6 +9,7 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
 public class GZIPCompression {
+
     public static String compress(final String str) throws IOException {
         if ((str == null) || (str.length() == 0)) {
             return null;
