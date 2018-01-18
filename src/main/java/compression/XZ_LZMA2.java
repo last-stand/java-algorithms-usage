@@ -8,7 +8,7 @@ import java.io.*;
 
 public class XZ_LZMA2 {
 
-    public static  byte[] compress(String inputString) throws IOException {
+    public static byte[] compress(String inputString) throws IOException {
         if ((inputString == null) || (inputString.length() == 0)) {
             return null;
         }
@@ -19,7 +19,7 @@ public class XZ_LZMA2 {
         return xzOutput.toByteArray();
     }
 
-    public static  String decompress(byte[] compressedData) throws IOException {
+    public static String decompress(byte[] compressedData) throws IOException {
         if ((compressedData == null) || (compressedData.length == 0)) {
             return "";
         }
