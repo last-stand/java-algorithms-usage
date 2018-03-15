@@ -18,12 +18,15 @@ public class AES {
     private static String ALGORITHM_NAME = "AES" ;
     private static String MODE_OF_OPERATION = "ECB"; /* ECB/CBC/CTR/GCM/CCM */
     private static String PADDING_SCHEME = "PKCS5Padding" ;
+    private static final byte[] SALT = { (byte) 0x28, (byte) 0x5F, (byte) 0x71, (byte) 0xC9,
+            (byte) 0x1E, (byte) 0x35, (byte) 0x0A, (byte) 0x62 };
 
     public static void setKey(String secret)
     {
         try {
             key = secret.getBytes("UTF-8");
             MessageDigest sha = MessageDigest.getInstance("SHA-1");
+            sha.update(SALT);
             byte[] digestOfPassword = sha.digest(key);
             byte[] keyBytes = Arrays.copyOf(digestOfPassword, 32);
             secretKey = new SecretKeySpec(keyBytes, ALGORITHM_NAME);

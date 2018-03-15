@@ -4,7 +4,7 @@
 Usage of different:
 * **encryption**
   * AES
-  * TripleDES
+  * TripleDES or 3DES
   * RC5
   * RC6
   * RSA
