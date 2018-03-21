@@ -15,7 +15,7 @@ public class RC6 {
     static {
         Security.addProvider(new BouncyCastleProvider());
     }
-    private static String ALGORITHM_NAME = "RC5";
+    private static String ALGORITHM_NAME = "RC6";
     private static String MODE_OF_OPERATION = "ECB";
     private static String PADDING_SCHEME = "PKCS5Padding" ;
     private static SecretKey secretKey;
